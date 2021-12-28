@@ -7,22 +7,19 @@ namespace ConsoleApp1
     {
         private int f_Num;              //플라스크고유번호
         private int stackNum;        //총량
-        Dictionary<int, int> color_Num;             //색번호, 크기
-        Stack<Dictionary<int, int>> s = new Stack<Dictionary<int, int>>();
+        Stack<string> s = new Stack<string>();
 
-        public set_Flask(int f_Num, int stackNum, Dictionary<int, int> color_Num, Stack<Dictionary<int, int>> s)
+        public set_Flask(int f_Num, int stackNum, Stack<string> s)
         {
             this.f_Num = f_Num;
             this.stackNum = stackNum;
-            this.color_Num = color_Num;
             this.s = s;
         }
 
         public int F_Num { get => f_Num; set => f_Num = value; }
         public int StackNum { get => stackNum; set => stackNum = value; }
-        public Dictionary<int, int> Color_Num { get => color_Num; set => color_Num = value; }
-        public Stack<Dictionary<int, int>> S { get => s; set => s = value; }
-        
+        public Stack<string> S { get => s; set => s = value; }
+
     }
 
     public class tot_colorNum
