@@ -120,6 +120,8 @@ namespace ConsoleApp1
             if (!(doSort_list.validationCheck(list_F, 9)))
                 Console.WriteLine("플라스크 색, 갯수 오류"); return;
 
+            //i를 j로 옮겨진것에 성공했다면, 0. 히스토리와 1. 현재 상태를 저장하고, 2. 그 상태에서 파생시켜 다시 돌리기.
+
 
         }
     }
