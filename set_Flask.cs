@@ -17,7 +17,13 @@ namespace ConsoleApp1
         }
 
         public int F_Num { get => f_Num; set => f_Num = value; }
-        public int StackNum { get => stackNum; set => stackNum = value; }
+        public int StackNum { get => stackNum;
+            set {
+                if (value > 4) { Console.Write("최대량 4를 초과된 양이 입력되었습니다.");  }
+                else {stackNum = value;}
+            }
+        }
+
         public Stack<string> S { get => s; set => s = value; }
 
     }

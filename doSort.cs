@@ -6,6 +6,16 @@ namespace ConsoleApp1
 	
     public class doSort
 	{
+		private List<Stack<string>> p_history_move;
+		private Stack<List<set_Flask>> p_history_status;
+		private List<Stack<string>> history_move;
+		private Stack<List<set_Flask>> history_status;
+		private int list_Index = 0;
+		public List<Stack<string>> P_history_move { get => p_history_move; set => p_history_move = value; }
+		public Stack<List<set_Flask>> P_history_status { get => p_history_status; set => p_history_status = value; }
+		public List<Stack<string>> History_move { get => history_move; set => history_move = value; }
+		public Stack<List<set_Flask>> History_status { get => history_status; set => history_status = value; }
+		public int List_Index { get => list_Index; set => list_Index = value; }
 
         public Boolean validationCheck(List<set_Flask> list_Flask,int col_num)	// 색과 색의총수가 4개인지 체크
 		{
@@ -40,7 +50,7 @@ namespace ConsoleApp1
 				return result;
 		}
 
-		public void cal_Sort_list(List<set_Flask> list_F)//한 가지 케이스를 딱 한번만 체크.
+		public void cal_Sort_list(List<set_Flask> list_F, int list_Index)//한 가지 케이스를 딱 한번만 체크.
 		{
 			for (int i = 0; i < list_F.Count; i++)
 			{
@@ -53,7 +63,8 @@ namespace ConsoleApp1
 						if (check_moveCol(list_F[i], list_F[j])) //이동가능한지 여부체크
 						{
 							List<set_Flask> new_list = new List<set_Flask>();
-							new_list = change_Flask(list_F, i, j);
+
+							//new_list = change_Flask(list_F, i, j);
 							// 새로운 상태!
 						}
 						else  //이동 불가 판정
@@ -69,7 +80,7 @@ namespace ConsoleApp1
 					// 반복 끝
 				}
 			}
-
+			//this.list_Index++;	//한번돌면 index 증가
 		}
 
 		public bool check_moveCol(set_Flask sel_F, set_Flask chk_F)	//이동할지 말지 체크 (속도향상을위해)
@@ -131,5 +142,84 @@ namespace ConsoleApp1
 
 			return new_list;
 		}
+
+		//i를 j로 옮겨진것에 성공했다면, 0. 히스토리와 1. 현재 상태를 저장하고, 2. 그 상태에서 파생시켜 다시 돌리기.
+
+		public void make_history(int i, int j, int list_Index, List<set_Flask> new_list) //0. 이력 만들기
+		{
+			if (list_Index == 0){   //처음이면 push만
+				Stack<string> stk_item = new Stack<string>();
+				stk_item.Push(i + "," + j);
+				this.p_history_move.Add(stk_item);
+				make_status(i, j, list_Index, new_list);	//상황도 저장.
+			}
+			else {  //처음이 아니면 이전 스택들 카피해서 저장 후 pop하고 푸쉬.
+				int pre_index = list_Index - 1;
+				//string[] new_list = new string[this.History_move[pre_index].Count];
+				//this.History_move[pre_index].CopyTo(new_list, this.History_move[pre_index].Count);
+
+				//for (int reverse_Num = this.History_move[pre_index].Count-1; reverse_Num >= 0; reverse_Num--) {
+				foreach (Stack<string> pre_str in this.p_history_move)
+				{
+					//string p_str = pre_str.Pop();
+					//this.History_move[list_Index].Push(p_str + "/" + i + "," + j);
+					foreach (string str in pre_str)
+					{
+						this.History_move
+					}
+				}
+			}
+		}
+
+		public void make_status(int i, int j, int list_Index, List<set_Flask> list_instance)	//1. 현상태 저장
+		{
+			if (list_Index == 0)
+			{   //처음이면 push만
+				set_Flask[] new_list = new set_Flask[list_instance.Count];
+				list_instance.CopyTo(new_list);
+				List<set_Flask> new_list2 = new List<set_Flask>();
+				foreach (set_Flask single in list_instance) {
+					new_list2.Add(single);
+				}
+				new_list2 = change_Flask(new_list2, i, j);
+				this.History_status.Push(new_list2);
+			}
+			else
+			{  //처음이 아니면 이전 스택들 카피해서 저장 후 pop하고 푸쉬.
+			   //int pre_index = list_Index - 1;
+			   //string[] new_list = new string[this.History_status[pre_index].Count];
+			   //this.History_status[pre_index].CopyTo(new_list, this.History_status[pre_index].Count);
+
+				/*for (int reverse_Num = this.History_status[pre_index].Count; reverse_Num > 0; reverse_Num--)
+				{
+					string pre_str = this.History_status[pre_index].Pop();
+				}*/
+				for (int k = 0; k < this.History_status.Count; i++)
+				{
+					List<set_Flask> pre_obj = this.History_status.Pop();
+					foreach (set_Flask obj in pre_obj) {
+						
+					}
+					
+				}
+			}
+		}
+
+		public void make_Reroll() //2. 상태를 고정하고 다시 돌리기.
+		{
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
 	}
 }
