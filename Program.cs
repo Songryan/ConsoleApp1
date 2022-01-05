@@ -21,7 +21,7 @@ namespace ConsoleApp1
             f_col1.Push("2,1");
             f_col1.Push("1,1");
             //플라스크고유번호//총량//색,크기
-            set_Flask f1 = new set_Flask(1,4, f_col1);
+            set_Flask f1 = new set_Flask(1, 4, f_col1);
 
             //2번
             Stack<string> f_col2 = new Stack<string>();
@@ -115,12 +115,58 @@ namespace ConsoleApp1
             list_F.Add(f10);
             list_F.Add(f11);
 
+            List<set_Flask> list_F2 = new List<set_Flask>();
+            list_F2.Add(f1);
+            list_F2.Add(f2);
+            list_F2.Add(f3);
+            list_F2.Add(f4);
+            list_F2.Add(f5);
+            list_F2.Add(f6);
+            list_F2.Add(f7);
+            list_F2.Add(f8);
+            list_F2.Add(f9);
+            list_F2.Add(f10);
+            list_F2.Add(f11);
+
             doSort doSort_list = new doSort();
             //리스트랑 색갯수 보냄
             if (!(doSort_list.validationCheck(list_F, 9)))
+            {
                 Console.WriteLine("플라스크 색, 갯수 오류"); return;
+            }
+
+            Stack<List<set_Flask>> save_set_flask = new Stack<List<set_Flask>>();
+            //변경된 플라스크셋 저장 stack
 
             //i를 j로 옮겨진것에 성공했다면, 0. 히스토리와 1. 현재 상태를 저장하고, 2. 그 상태에서 파생시켜 다시 돌리기.
+            for (int i = 0; i < list_F.Count; i++)
+            {
+                for (int j = 0; j < list_F.Count; j++)
+                {
+                    // 반복 시작
+                    if (i != j)
+                    {
+                        if (doSort_list.check_moveCol(list_F[i], list_F[j])) //이동가능한지 여부체크
+                        {
+                            save_set_flask.Push(doSort_list.change_Flask(list_F2, i, j));   // 원본은 그대로두고 f2에 변경 저장
+                            Console.WriteLine($"변경 후 list_F2 ..... i는 : {list_F2[i].ToString()}, j는 : {list_F2[j].ToString()}");
+                            //초기상태로 되돌려서 변경점 리스트만 저장하기. (깊은복사) F데이터를 F2에 복사
+                            list_F2.Clear();
+                            list_F2 = list_F.ConvertAll(obj => new set_Flask(obj.F_Num,obj.StackNum,obj.S));
+                            Console.WriteLine($"복사 후 list_F2 ..... i는 : {list_F2[i].ToString()}, j는 : {list_F2[j].ToString()}");
+                        }
+                        else  //이동 불가 판정
+                        {
+
+                            //불가해도  패스
+                        }
+                    }
+                    else if (i == j)
+                    {
+                        //같으면 패스
+                    }
+                }
+            }
 
 
         }
