@@ -7,167 +7,140 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            //플라스크맨들고 array로 값넘김.
-            //prepare();
-            //넘겨받은값으로 경우의수 
-            //doSort();
-            //경우의수 체크해서 출력
-            //printResult();
-
-            //1번
-            Stack<string> f_col1 = new Stack<string>();
-            f_col1.Push("4,1");
-            f_col1.Push("3,1");
-            f_col1.Push("2,1");
-            f_col1.Push("1,1");
-            //플라스크고유번호//총량//색,크기
-            set_Flask f1 = new set_Flask(1, 4, f_col1);
-
-            //2번
-            Stack<string> f_col2 = new Stack<string>();
-            f_col2.Push("7,2");
-            f_col2.Push("6,1");
-            f_col2.Push("5,1");
-            //플라스크고유번호//총량//색,크기
-            set_Flask f2 = new set_Flask(2, 4, f_col2);
-
-            //3번
-            Stack<string> f_col3 = new Stack<string>();
-            f_col3.Push("4,1");
-            f_col3.Push("2,1");
-            f_col3.Push("5,1");
-            f_col3.Push("1,1");
-            //플라스크고유번호//총량//색,크기
-            set_Flask f3 = new set_Flask(3, 4, f_col3);
-
-            //4번
-            Stack<string> f_col4 = new Stack<string>();
-            f_col4.Push("8,1");
-            f_col4.Push("4,1");
-            f_col4.Push("9,1");
-            f_col4.Push("2,1");
-            //플라스크고유번호//총량//색,크기
-            set_Flask f4 = new set_Flask(4, 4, f_col4);
-
-            //5번
-            Stack<string> f_col5 = new Stack<string>();
-            f_col5.Push("3,1");
-            f_col5.Push("4,1");
-            f_col5.Push("7,1");
-            f_col5.Push("2,1");
-            //플라스크고유번호//총량//색,크기
-            set_Flask f5 = new set_Flask(5, 4, f_col5);
-
-            //6번
-            Stack<string> f_col6 = new Stack<string>();
-            f_col6.Push("6,1");
-            f_col6.Push("9,1");
-            f_col6.Push("5,1");
-            f_col6.Push("3,1");
-            //플라스크고유번호//총량//색,크기
-            set_Flask f6 = new set_Flask(6, 4, f_col6);
-
-            //7번
-            Stack<string> f_col7 = new Stack<string>();
-            f_col7.Push("1,2");
-            f_col7.Push("9,1");
-            f_col7.Push("8,1");
-            //플라스크고유번호//총량//색,크기
-            set_Flask f7 = new set_Flask(7, 4, f_col7);
-
-            //8번
-            Stack<string> f_col8 = new Stack<string>();
-            f_col8.Push("8,1");
-            f_col8.Push("7,1");
-            f_col8.Push("3,1");
-            f_col8.Push("9,1");
-            //플라스크고유번호//총량//색,크기
-            set_Flask f8 = new set_Flask(8, 4, f_col8);
-
-            //9번
-            Stack<string> f_col9 = new Stack<string>();
-            f_col9.Push("8,1");
-            f_col9.Push("5,1");
-            f_col9.Push("6,2");
-            //플라스크고유번호//총량//색,크기
-            set_Flask f9 = new set_Flask(9, 4, f_col9);
-
-            //10번
-            Stack<string> f_col10 = new Stack<string>();
-            //플라스크고유번호//총량//색,크기
-            set_Flask f10 = new set_Flask(10, 0, f_col10);
-
-            //11번
-            Stack<string> f_col11 = new Stack<string>();
-            //플라스크고유번호//총량//색,크기
-            set_Flask f11 = new set_Flask(11, 0, f_col11);
-
-            List<set_Flask> list_F = new List<set_Flask>();
-            list_F.Add(f1);
-            list_F.Add(f2);
-            list_F.Add(f3);
-            list_F.Add(f4);
-            list_F.Add(f5);
-            list_F.Add(f6);
-            list_F.Add(f7);
-            list_F.Add(f8);
-            list_F.Add(f9);
-            list_F.Add(f10);
-            list_F.Add(f11);
-
-            List<set_Flask> list_F2 = new List<set_Flask>();
-            list_F2.Add(f1);
-            list_F2.Add(f2);
-            list_F2.Add(f3);
-            list_F2.Add(f4);
-            list_F2.Add(f5);
-            list_F2.Add(f6);
-            list_F2.Add(f7);
-            list_F2.Add(f8);
-            list_F2.Add(f9);
-            list_F2.Add(f10);
-            list_F2.Add(f11);
-
             doSort doSort_list = new doSort();
-            //리스트랑 색갯수 보냄
-            if (!(doSort_list.validationCheck(list_F, 9)))
-            {
-                Console.WriteLine("플라스크 색, 갯수 오류"); return;
-            }
+            try {
 
-            Stack<List<set_Flask>> save_set_flask = new Stack<List<set_Flask>>();
-            //변경된 플라스크셋 저장 stack
+                List<set_Flask> list_F = new List<set_Flask>();
+                doSort_list.defalut_Flask(list_F);
 
-            //i를 j로 옮겨진것에 성공했다면, 0. 히스토리와 1. 현재 상태를 저장하고, 2. 그 상태에서 파생시켜 다시 돌리기.
-            for (int i = 0; i < list_F.Count; i++)
-            {
-                for (int j = 0; j < list_F.Count; j++)
+                //리스트랑 색갯수 보냄
+                if (!(doSort_list.validationCheck(list_F, 9)))
                 {
-                    // 반복 시작
-                    if (i != j)
-                    {
-                        if (doSort_list.check_moveCol(list_F[i], list_F[j])) //이동가능한지 여부체크
-                        {
-                            save_set_flask.Push(doSort_list.change_Flask(list_F2, i, j));   // 원본은 그대로두고 f2에 변경 저장
-                            Console.WriteLine($"변경 후 list_F2 ..... i는 : {list_F2[i].ToString()}, j는 : {list_F2[j].ToString()}");
-                            //초기상태로 되돌려서 변경점 리스트만 저장하기. (깊은복사) F데이터를 F2에 복사
-                            list_F2.Clear();
-                            list_F2 = list_F.ConvertAll(obj => new set_Flask(obj.F_Num,obj.StackNum,obj.S));
-                            Console.WriteLine($"복사 후 list_F2 ..... i는 : {list_F2[i].ToString()}, j는 : {list_F2[j].ToString()}");
-                        }
-                        else  //이동 불가 판정
-                        {
-
-                            //불가해도  패스
-                        }
-                    }
-                    else if (i == j)
-                    {
-                        //같으면 패스
-                    }
+                    Console.WriteLine("플라스크 색, 갯수 오류"); return;
                 }
+
+                /*foreach (set_Flask s in list_F)
+                {
+                    string str = s.S.Count > 0 ? s.S.Peek() : "없음.";
+                    Console.WriteLine($"{s.F_Num} 는 : ${str} 총 크기는 {s.StackNum}");
+                }*/
+                Stack<string> stk = new Stack<string>();
+                //List<Stack<string>> stk_list = new List<Stack<string>>();
+
+                doSort_list.do_repetition(list_F, stk);
+                //stk_list.Add(stk);
+
+
+                Stack<string> stk2 = new Stack<string>(); //두번쨰 스택
+                Stack<string> stk3 = new Stack<string>(); //담아담아
+
+                foreach (string str in stk)
+                {
+                    list_F.Clear();
+                    doSort_list.defalut_Flask(list_F);
+
+                    //Console.WriteLine($"{str}");
+                    string p_str = str; // 추가될 경우의 수를 담을 string 1,1
+
+                    string[] arr_str = str.Split(",");
+                    int i = Int32.Parse(arr_str[0]);
+                    int j = Int32.Parse(arr_str[1]);
+
+                    doSort_list.change_Flask(list_F, i, j); //1번변경
+
+                    doSort_list.do_repetition(list_F, stk2);    //1번에 대한 경우의수 ex 2,2 3,2 4,2
+
+                    //doSort_list.reverse_Flask(list_F, j, i); // 1번 변경에 대한 되돌리기
+
+                    foreach (string c_str in stk2)
+                    {
+                        stk3.Push(p_str + "/" + c_str);       //ex 1,1+/2,2     1,1+/3,2      1,1+/4,2
+                        stk3.Push("@"); //종결점 ex 1,1/2,2     @     1,1/3,2     @      1,1/4,2     @
+                    }
+
+                    stk2.Clear(); //pop이 아니므로 clear
+                }
+                stk.Clear(); //pop이 아니므로 clear
+
+
+
+                Stack<string> stk4 = new Stack<string>(); //담고 업어지고..!
+                Stack<string> stk5 = new Stack<string>(); //담아담아
+
+                for (int k = 0; k < 10; k++)
+                {
+
+                    if (k != 0) {
+                        stk3 = new Stack<string>(stk5);
+                        stk5.Clear();  //처음빼곤 clear
+                    }
+                    /*foreach (string str111 in stk3) 
+                    {
+                        Console.WriteLine($"{str111}");
+                    }*/
+                    Console.WriteLine($"{k+1}번째 stk3의 Count는 {stk3.Count}");
+
+                    foreach (string str in stk3)    // ex 1,1/2,2     @     1,1/3,2     @      1,1/4,2     @
+                    {
+                        if (str.Equals("@")) continue; //ex 1,1 / 2,2     @안하고 넘김
+
+                        list_F.Clear();
+                        doSort_list.defalut_Flask(list_F);
+
+                        string p_str = str;
+
+                        string[] d2_arr_str = str.Split("/");       //ex [0]1,1      [1]2,2
+                        //int count_cr = 0;   //reverse 할 숫자
+                        foreach (string str_split in d2_arr_str)
+                        {
+                            string[] d1_arr_str = str_split.Split(",");     //ex 1,1
+                            int i = Int32.Parse(d1_arr_str[0]);
+                            int j = Int32.Parse(d1_arr_str[1]);
+
+                            doSort_list.change_Flask(list_F, i, j); //ex 1,1      2,2 변경
+                            //count_cr++;
+                        }
+
+                        doSort_list.do_repetition(list_F, stk4);    // ex 1,1/2,2 로변경된거에서 또 돌려
+
+                        if (stk4.Count == 0) {
+                            continue;
+                        }
+
+                        foreach (string d1_str in stk4)
+                        {
+                            stk5.Push(p_str + "/" + d1_str); // ex 1,1/2,2/4,4       @    1,1/2,2/5,5     @    1,1/2,2/7.7
+                            stk5.Push("@");
+                        }
+
+                        stk4.Clear();
+
+                        /*for (int reverse = count_cr - 1; reverse >= 0; reverse--)  //ex     [1]2,2    [0]1,1   reverse는 2로시작
+                        {
+                            string[] d1_arr_str = d2_arr_str[reverse].Split(","); //ex     [1]2,2
+                            int i = Int32.Parse(d1_arr_str[0]);
+                            int j = Int32.Parse(d1_arr_str[1]);
+
+                            doSort_list.reverse_Flask(list_F, j, i);
+                        }*/
+
+                    }
+
+                    stk3.Clear();   //stk3이 할일을 다했으므로 
+
+                }
+
+                /*foreach (string result in stk5)
+                {
+                    Console.WriteLine(result);
+                }*/
+
+
             }
 
+            catch (Exception ex) {
+                Console.WriteLine(ex.ToString());
+            }
 
         }
     }

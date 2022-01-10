@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 
 namespace ConsoleApp1
 {
@@ -19,13 +20,13 @@ namespace ConsoleApp1
         public int F_Num { get => f_Num; set => f_Num = value; }
         public int StackNum { get => stackNum;
             set {
-                if (value > 4) { Console.Write("최대량 4를 초과된 양이 입력되었습니다.");  }
+                if (value > 4 || value < 0) 
+                { Console.Write("최대량 4를 초과된 양 또는 0이하의 값이 입력되었습니다.");  }
                 else {stackNum = value;}
             }
         }
 
-        public Stack<string> S { get => s; set => s = value; }
-
+        public Stack<string> S  {  get => s; set => s = value; }
     }
 
     public class tot_colorNum
