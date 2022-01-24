@@ -5,11 +5,10 @@ namespace ConsoleApp1
 {
     class Start
     {
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
-            doSort doSort_list = new doSort();
             try {
-
+                doSort doSort_list = new doSort();
                 List<set_Flask> list_F = new List<set_Flask>();
                 doSort_list.defalut_Flask(list_F);
 
@@ -19,11 +18,11 @@ namespace ConsoleApp1
                     Console.WriteLine("플라스크 색, 갯수 오류"); return;
                 }
 
-                /*foreach (set_Flask s in list_F)
+                *//*foreach (set_Flask s in list_F)
                 {
                     string str = s.S.Count > 0 ? s.S.Peek() : "없음.";
                     Console.WriteLine($"{s.F_Num} 는 : ${str} 총 크기는 {s.StackNum}");
-                }*/
+                }*//*
                 Stack<string> stk = new Stack<string>();
                 //List<Stack<string>> stk_list = new List<Stack<string>>();
 
@@ -74,10 +73,10 @@ namespace ConsoleApp1
                         stk3 = new Stack<string>(stk5);
                         stk5.Clear();  //처음빼곤 clear
                     }
-                    /*foreach (string str111 in stk3) 
+                    *//*foreach (string str111 in stk3) 
                     {
                         Console.WriteLine($"{str111}");
-                    }*/
+                    }*//*
                     Console.WriteLine($"{k+1}번째 stk3의 Count는 {stk3.Count}");
 
                     foreach (string str in stk3)    // ex 1,1/2,2     @     1,1/3,2     @      1,1/4,2     @
@@ -103,7 +102,7 @@ namespace ConsoleApp1
 
                         doSort_list.do_repetition(list_F, stk4);    // ex 1,1/2,2 로변경된거에서 또 돌려
 
-                        if (stk4.Count == 0) {
+                        if (stk4.Count == 0) {  // 가능한 옮김이 없으면 넘기기
                             continue;
                         }
 
@@ -115,14 +114,14 @@ namespace ConsoleApp1
 
                         stk4.Clear();
 
-                        /*for (int reverse = count_cr - 1; reverse >= 0; reverse--)  //ex     [1]2,2    [0]1,1   reverse는 2로시작
+                        *//*for (int reverse = count_cr - 1; reverse >= 0; reverse--)  //ex     [1]2,2    [0]1,1   reverse는 2로시작
                         {
                             string[] d1_arr_str = d2_arr_str[reverse].Split(","); //ex     [1]2,2
                             int i = Int32.Parse(d1_arr_str[0]);
                             int j = Int32.Parse(d1_arr_str[1]);
 
                             doSort_list.reverse_Flask(list_F, j, i);
-                        }*/
+                        }*//*
 
                     }
 
@@ -130,10 +129,10 @@ namespace ConsoleApp1
 
                 }
 
-                /*foreach (string result in stk5)
+                *//*foreach (string result in stk5)
                 {
                     Console.WriteLine(result);
-                }*/
+                }*//*
 
 
             }
@@ -142,6 +141,6 @@ namespace ConsoleApp1
                 Console.WriteLine(ex.ToString());
             }
 
-        }
+        }*/
     }
 }

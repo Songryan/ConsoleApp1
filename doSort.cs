@@ -185,147 +185,158 @@ namespace ConsoleApp1
 		{
 			//1번
 			Stack<string> f_col1 = new Stack<string>();
-			Stack<string> f_col1_1 = new Stack<string>();
 			f_col1.Push("4,1");
 			f_col1.Push("3,1");
 			f_col1.Push("2,1");
 			f_col1.Push("1,1");
-			f_col1_1.Push("4,1");
-			f_col1_1.Push("3,1");
-			f_col1_1.Push("2,1");
-			f_col1_1.Push("1,1");
-			//플라스크고유번호//총량//색,크기
 			set_Flask f1_0 = new set_Flask(1, 4, f_col1);
-			set_Flask f1_1 = new set_Flask(1, 4, f_col1_1);
+
+/*            Stack<string> f_col1_1 = new Stack<string>();
+            f_col1_1.Push("4,1");
+            f_col1_1.Push("3,1");
+            f_col1_1.Push("2,1");
+            f_col1_1.Push("1,1");
+            set_Flask f1_1 = new set_Flask(1, 4, f_col1_1);*/
+            //플라스크고유번호//총량//색,크기
 
 
-			//2번
-			Stack<string> f_col2 = new Stack<string>();
-			Stack<string> f_col2_1 = new Stack<string>();
+            //2번
+            Stack<string> f_col2 = new Stack<string>();
 			f_col2.Push("7,2");
 			f_col2.Push("6,1");
 			f_col2.Push("5,1");
+			set_Flask f2_0 = new set_Flask(2, 4, f_col2);
+
+			/*Stack<string> f_col2_1 = new Stack<string>();
 			f_col2_1.Push("7,2");
 			f_col2_1.Push("6,1");
 			f_col2_1.Push("5,1");
+			set_Flask f2_1 = new set_Flask(2, 4, f_col2_1);*/
 			//플라스크고유번호//총량//색,크기
-			set_Flask f2_0 = new set_Flask(2, 4, f_col2);
-			set_Flask f2_1 = new set_Flask(2, 4, f_col2_1);
 
 			//3번
 			Stack<string> f_col3 = new Stack<string>();
-			Stack<string> f_col3_1 = new Stack<string>();
 			f_col3.Push("4,1");
 			f_col3.Push("2,1");
 			f_col3.Push("5,1");
 			f_col3.Push("1,1");
+			set_Flask f3_0 = new set_Flask(3, 4, f_col3);
+
+/*			Stack<string> f_col3_1 = new Stack<string>();
 			f_col3_1.Push("4,1");
 			f_col3_1.Push("2,1");
 			f_col3_1.Push("5,1");
 			f_col3_1.Push("1,1");
+			set_Flask f3_1 = new set_Flask(3, 4, f_col3_1);*/
 			//플라스크고유번호//총량//색,크기
-			set_Flask f3_0 = new set_Flask(3, 4, f_col3);
-			set_Flask f3_1 = new set_Flask(3, 4, f_col3_1);
 
 			//4번
 			Stack<string> f_col4 = new Stack<string>();
-			Stack<string> f_col4_1 = new Stack<string>();
 			f_col4.Push("8,1");
 			f_col4.Push("4,1");
 			f_col4.Push("9,1");
 			f_col4.Push("2,1");
+			set_Flask f4_0 = new set_Flask(4, 4, f_col4);
+
+			/*Stack<string> f_col4_1 = new Stack<string>();
 			f_col4_1.Push("8,1");
 			f_col4_1.Push("4,1");
 			f_col4_1.Push("9,1");
 			f_col4_1.Push("2,1");
+			set_Flask f4_1 = new set_Flask(4, 4, f_col4_1);*/
 			//플라스크고유번호//총량//색,크기
-			set_Flask f4_0 = new set_Flask(4, 4, f_col4);
-			set_Flask f4_1 = new set_Flask(4, 4, f_col4_1);
 
 			//5번
 			Stack<string> f_col5 = new Stack<string>();
-			Stack<string> f_col5_1 = new Stack<string>();
 			f_col5.Push("3,1");
 			f_col5.Push("4,1");
 			f_col5.Push("7,1");
 			f_col5.Push("2,1");
+			set_Flask f5_0 = new set_Flask(5, 4, f_col5);
+
+			/*Stack<string> f_col5_1 = new Stack<string>();
 			f_col5_1.Push("3,1");
 			f_col5_1.Push("4,1");
 			f_col5_1.Push("7,1");
 			f_col5_1.Push("2,1");
+			set_Flask f5_1 = new set_Flask(5, 4, f_col5_1);*/
 			//플라스크고유번호//총량//색,크기
-			set_Flask f5_0 = new set_Flask(5, 4, f_col5);
-			set_Flask f5_1 = new set_Flask(5, 4, f_col5_1);
 
 			//6번
 			Stack<string> f_col6 = new Stack<string>();
-			Stack<string> f_col6_1 = new Stack<string>();
 			f_col6.Push("6,1");
 			f_col6.Push("9,1");
 			f_col6.Push("5,1");
 			f_col6.Push("3,1");
+			set_Flask f6_0 = new set_Flask(6, 4, f_col6);
+
+			/*Stack<string> f_col6_1 = new Stack<string>();
 			f_col6_1.Push("6,1");
 			f_col6_1.Push("9,1");
 			f_col6_1.Push("5,1");
 			f_col6_1.Push("3,1");
+			set_Flask f6_1 = new set_Flask(6, 4, f_col6);*/
 			//플라스크고유번호//총량//색,크기
-			set_Flask f6_0 = new set_Flask(6, 4, f_col6);
-			set_Flask f6_1 = new set_Flask(6, 4, f_col6);
 
 			//7번
 			Stack<string> f_col7 = new Stack<string>();
-			Stack<string> f_col7_1 = new Stack<string>();
 			f_col7.Push("1,2");
 			f_col7.Push("9,1");
 			f_col7.Push("8,1");
+			set_Flask f7_0 = new set_Flask(7, 4, f_col7);
+
+			/*Stack<string> f_col7_1 = new Stack<string>();
 			f_col7_1.Push("1,2");
 			f_col7_1.Push("9,1");
 			f_col7_1.Push("8,1");
+			set_Flask f7_1 = new set_Flask(7, 4, f_col7_1);*/
 			//플라스크고유번호//총량//색,크기
-			set_Flask f7_0 = new set_Flask(7, 4, f_col7);
-			set_Flask f7_1 = new set_Flask(7, 4, f_col7_1);
 
 			//8번
 			Stack<string> f_col8 = new Stack<string>();
-			Stack<string> f_col8_1 = new Stack<string>();
 			f_col8.Push("8,1");
 			f_col8.Push("7,1");
 			f_col8.Push("3,1");
 			f_col8.Push("9,1");
+			set_Flask f8_0 = new set_Flask(8, 4, f_col8);
+
+			/*Stack<string> f_col8_1 = new Stack<string>();
 			f_col8_1.Push("8,1");
 			f_col8_1.Push("7,1");
 			f_col8_1.Push("3,1");
 			f_col8_1.Push("9,1");
+			set_Flask f8_1 = new set_Flask(8, 4, f_col8_1);*/
 			//플라스크고유번호//총량//색,크기
-			set_Flask f8_0 = new set_Flask(8, 4, f_col8);
-			set_Flask f8_1 = new set_Flask(8, 4, f_col8_1);
 
 			//9번
 			Stack<string> f_col9 = new Stack<string>();
-			Stack<string> f_col9_1 = new Stack<string>();
 			f_col9.Push("8,1");
 			f_col9.Push("5,1");
 			f_col9.Push("6,2");
+			set_Flask f9_0 = new set_Flask(9, 4, f_col9);
+
+			/*Stack<string> f_col9_1 = new Stack<string>();
 			f_col9_1.Push("8,1");
 			f_col9_1.Push("5,1");
 			f_col9_1.Push("6,2");
+			set_Flask f9_1 = new set_Flask(9, 4, f_col9_1);*/
 			//플라스크고유번호//총량//색,크기
-			set_Flask f9_0 = new set_Flask(9, 4, f_col9);
-			set_Flask f9_1 = new set_Flask(9, 4, f_col9_1);
 
 			//10번
 			Stack<string> f_col10 = new Stack<string>();
-			Stack<string> f_col10_1 = new Stack<string>();
-			//플라스크고유번호//총량//색,크기
 			set_Flask f10_0 = new set_Flask(10, 0, f_col10);
-			set_Flask f10_1 = new set_Flask(10, 0, f_col10_1);
+
+			/*Stack<string> f_col10_1 = new Stack<string>();
+			set_Flask f10_1 = new set_Flask(10, 0, f_col10_1);*/
+			//플라스크고유번호//총량//색,크기
 
 			//11번
 			Stack<string> f_col11 = new Stack<string>();
-			Stack<string> f_col11_1 = new Stack<string>();
-			//플라스크고유번호//총량//색,크기
 			set_Flask f11_0 = new set_Flask(11, 0, f_col11);
-			set_Flask f11_1 = new set_Flask(11, 0, f_col11_1);
+
+			/*Stack<string> f_col11_1 = new Stack<string>();
+			set_Flask f11_1 = new set_Flask(11, 0, f_col11_1);*/
+			//플라스크고유번호//총량//색,크기
 
 			//list_F = new List<set_Flask>();
 			list_F.Add(f1_0);
@@ -340,7 +351,7 @@ namespace ConsoleApp1
 			list_F.Add(f10_0);
 			list_F.Add(f11_0);
 
-			List<set_Flask> list_F2 = new List<set_Flask>();
+			/*List<set_Flask> list_F2 = new List<set_Flask>();
 			list_F2.Add(f1_1);
 			list_F2.Add(f2_1);
 			list_F2.Add(f3_1);
@@ -351,7 +362,7 @@ namespace ConsoleApp1
 			list_F2.Add(f8_1);
 			list_F2.Add(f9_1);
 			list_F2.Add(f10_1);
-			list_F2.Add(f11_1);
+			list_F2.Add(f11_1);*/
 		}
 
 
