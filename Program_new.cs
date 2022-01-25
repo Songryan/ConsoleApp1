@@ -127,9 +127,16 @@ namespace ConsoleApp1
 
                     if (q4.Count == 0)
                     {  // 가능한 옮김이 없으면 넘기기
-                        q4.Clear();
-                        q6.Clear();
-                        continue;
+
+                        if (doSort_list_new.Check_completeYN(list_F)){
+                                Console.Write($"완성 : {q6.ToString()}");
+                                break;
+                        }
+                        else { 
+                            q4.Clear();
+                            q6.Clear();
+                            continue;
+                        }
                     }
                     else {
                         count_q4 = q4.Count / 2;

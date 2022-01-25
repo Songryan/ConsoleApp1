@@ -239,8 +239,8 @@ namespace ConsoleApp1
 				int i_col_num = new_list[i].S.Pop();
 				new_list[i].StackNum -= i_col_quantity;     // 부은 후 총량감소.
 
-				int j_col_num = 0;
-				int j_col_quantity = 0;
+				//int j_col_num;
+				//int j_col_quantity;
 				if (new_list[j].StackNum == 0) // new_list[j]가 빈거면
 				{
 					//j_col_num = i_col_num;
@@ -252,7 +252,7 @@ namespace ConsoleApp1
 				else
 				{
 					//string[] j_Flask = new_list[j].S.Pop().Split(",");  //일단 꺼낸다음 다시 푸쉬로 넣기.
-					j_col_quantity = new_list[j].S.Pop();
+					int j_col_quantity = new_list[j].S.Pop();
 					//j_col_num = new_list[j].S.Pop();
 					new_list[j].StackNum += i_col_quantity;     // i 량만큼 총량 증가.
 					j_col_quantity += i_col_quantity;           // i량만큼 j량 증가.
@@ -290,6 +290,32 @@ namespace ConsoleApp1
 				}
 			}
 		}
+
+
+		public bool Check_completeYN(List<set_Flask_new> list)	// 완성확인
+		{
+			bool result = true;
+
+			foreach (set_Flask_new f in list)
+			{
+				if (f.S.Peek() != 4 && f.StackNum != 4) result = false;
+			}
+
+			return result;
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
