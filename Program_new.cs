@@ -127,6 +127,8 @@ namespace ConsoleApp1
 
                     if (q4.Count == 0)
                     {  // 가능한 옮김이 없으면 넘기기
+                        q4.Clear();
+                        q6.Clear();
                         continue;
                     }
                     else {
