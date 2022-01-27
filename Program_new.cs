@@ -14,8 +14,10 @@ namespace ConsoleApp1
                 List<set_Flask_new> list_F = new List<set_Flask_new>();
                 doSort_list_new.defalut_Flask_new(list_F);
 
+                int[] empt_check = doSort_list_new.Listempty_Check(list_F);
+
                 //리스트랑 색갯수 보냄
-                if (!(doSort_list_new.validationCheck_new(list_F, 9)))
+                if (!(doSort_list_new.validationCheck_new(list_F, (list_F.Count- empt_check[0]) )))
                 {
                     Console.WriteLine("플라스크 색, 갯수 오류"); return;
                 }
@@ -27,8 +29,21 @@ namespace ConsoleApp1
                 }*/
                 var q1 = new Queue<int>();
                 //List<Stack<string>> stk_list = new List<Stack<string>>();
+                int[,] colarr = doSort_list_new.Add_totColor(list_F);
 
+                Queue<int> pri_f_num = doSort_list_new.PriorityColnum_Search(colarr, list_F.Count - empt_check[0]);
+
+
+                /*  if (empt_check[0] == 2) {
+                      doSort_list_new.do_repetition_except_new(list_F, q1, empt_check);
+                  }
+                  else { 
+                      doSort_list_new.do_repetition_new(list_F, q1);
+                  }*/
+
+                doSort_list_new.priority_Flask_new(list_F, pri_f_num);
                 doSort_list_new.do_repetition_new(list_F, q1);
+
                 int count_q1 = q1.Count / 2;
                 //stk_list.Add(stk);
 

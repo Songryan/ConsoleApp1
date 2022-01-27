@@ -304,6 +304,171 @@ namespace ConsoleApp1
 			return result;
 		}
 
+		// 빈플라스크 번호 리턴
+		public int[] Listempty_Check(List<set_Flask_new> list) {
+			int[] result = { 0, 0, 0 };
+			foreach (set_Flask_new obj in list) {
+				if (obj.StackNum == 0) {
+					result[0] += 1;
+					result[result[0]] = obj.F_Num - 1;
+				}
+			}
+			return result;
+		}
+
+
+		public void do_repetition_except_new(List<set_Flask_new> list_F, Queue<int> q, int[] empt_check)
+		{
+			for (int i = 0; i < list_F.Count; i++)
+			{
+				for (int j = 0; j < list_F.Count; j++)
+				{
+					// 반복 시작
+					if (i != j)
+					{
+						// 두번째 빈플라스크 연산 pass;
+						if (j == empt_check[2]) continue;
+
+						if (check_moveCol_new(list_F[i], list_F[j])) //이동가능한지 여부체크
+						{
+							q.Enqueue(i);
+							q.Enqueue(j);
+							//change_Flask(list_F, i, j);   // 원본은 그대로두고 f2에 변경 저장
+							//Console.WriteLine($"변경 후 list_F2\ni번호 : {i + 1}, {list_F[i].S.Peek()}, 총크기 : {list_F[i].StackNum}, \nj번호 : {j + 1}, {list_F[j].S.Peek()}, 총크기 :  {list_F[j].StackNum}");
+							//reverse_Flask(list_F, j, i);    //다시 j들어서 i에 붓기
+						}
+					}
+				}
+			}
+		}
+
+		public int[,] Add_totColor(List<set_Flask_new> list) {
+
+			int[,] colarr = new int[ list.Count, 4 ];
+			int row = 0;
+
+			foreach (set_Flask_new obj in list){
+
+				if (obj.StackNum == 0) continue;
+
+				int column = 0;
+				int count = obj.S.Count;
+				int size = 0;
+
+				if (obj.StackNum < 4)  //비어있는거!
+				{
+					int empty_num = 4 - obj.StackNum;
+					column += empty_num;
+				}
+				
+				foreach (int num in obj.S) {
+					if (count % 2 == 0) {   //오는게 크기면.
+						size = num;
+					}
+					else {  // 오는게 색이면
+						for (int i = 0; i < size; i++) {
+							colarr[row, column] = num;
+							column++;
+						}
+					}
+					count--;
+				}
+				row++;
+			}
+
+			return colarr;
+		}
+
+		public Queue<int> PriorityColnum_Search(int[,] intarr, int totCol)
+		{
+
+			int[,] pri_arr = new int[totCol, 4];
+
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < totCol; j++)
+				{
+					//if (intarr[j, i] == 0) continue;
+					pri_arr[intarr[j, i] - 1, i] += 1;
+				}
+			}
+
+			Queue<int> first_pri = new Queue<int>();
+			Queue<int> second_pri = new Queue<int>();
+			Queue<int> third_pri = new Queue<int>();
+			int maxC = 4;
+			do
+			{
+				for (int k = 0; k < totCol; k++)
+				{
+					if (pri_arr[k, 0] >= maxC && pri_arr[k, 3] == 0 && pri_arr[k, 1] > 0) {
+						first_pri.Enqueue(k + 1);
+					}
+					if (pri_arr[k, 0] >= maxC && pri_arr[k, 3] == 0) {
+						second_pri.Enqueue(k + 1);
+					}
+					if (pri_arr[k, 0] >= maxC && pri_arr[k, 1] > 0)
+					{
+						third_pri.Enqueue(k + 1);
+					}
+				}
+				maxC--;
+			} while (maxC > 0);
+
+			Queue<int> result = new Queue<int>();
+
+			if (first_pri.Count > 0)
+			{
+				foreach (int num in first_pri) {
+					for (int fnum = 0; fnum < totCol + 2; fnum++) {
+						if( intarr[fnum,0] == num ) result.Enqueue(fnum+1);
+					}
+				}
+				return result;
+			}
+			else if (second_pri.Count > 0)
+			{
+				foreach (int num in second_pri)
+				{
+					for (int fnum = 0; fnum < totCol + 2; fnum++)
+					{
+						if (intarr[fnum, 0] == num) result.Enqueue(fnum + 1);
+					}
+				}
+				return result;
+			}
+			else 
+			{
+				foreach (int num in third_pri)
+				{
+					for (int fnum = 0; fnum < totCol + 2; fnum++)
+					{
+						if (intarr[fnum, 0] == num) result.Enqueue(fnum + 1);
+					}
+				}
+				return result;
+			}
+		}
+
+		public void priority_Flask_new(List<set_Flask_new> list, Queue<int> pri_f_num) 
+		{
+			foreach (set_Flask_new obj in list) {
+				if (obj.StackNum == 0)
+				{
+					int j = obj.F_Num;
+					list = change_Flask_new(list, pri_f_num.Dequeue(), j-1);
+					list = change_Flask_new(list, pri_f_num.Dequeue(), j-1);
+					break;
+				}
+			}
+		}
+
+
+
+
+
+
+
 
 
 
