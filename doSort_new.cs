@@ -306,7 +306,9 @@ namespace ConsoleApp1
 
 		// 빈플라스크 번호 리턴
 		public int[] Listempty_Check(List<set_Flask_new> list) {
+
 			int[] result = { 0, 0, 0 };
+
 			foreach (set_Flask_new obj in list) {
 				if (obj.StackNum == 0) {
 					result[0] += 1;
@@ -319,6 +321,8 @@ namespace ConsoleApp1
 
 		public void do_repetition_except_new(List<set_Flask_new> list_F, Queue<int> q, int[] empt_check)
 		{
+			bool chk_c = true;
+
 			for (int i = 0; i < list_F.Count; i++)
 			{
 				for (int j = 0; j < list_F.Count; j++)
@@ -327,7 +331,10 @@ namespace ConsoleApp1
 					if (i != j)
 					{
 						// 두번째 빈플라스크 연산 pass;
-						if (j == empt_check[2]) continue;
+						/*if (i == empt_check[1] && j == empt_check[2] && chk_c) {
+							chk_c = false;
+							continue;
+						}*/
 
 						if (check_moveCol_new(list_F[i], list_F[j])) //이동가능한지 여부체크
 						{
@@ -413,20 +420,19 @@ namespace ConsoleApp1
 					}
 				}
 				maxC--;
-			} while (maxC > 0);
+			} while (maxC > 1);
 
 			Queue<int> result = new Queue<int>();
 
-			if (first_pri.Count > 0)
+			if (third_pri.Count > 0 && first_pri.Count == 0 && second_pri.Count == 0)
 			{
 				foreach (int num in first_pri) {
 					for (int fnum = 0; fnum < totCol + 2; fnum++) {
 						if( intarr[fnum,0] == num ) result.Enqueue(fnum+1);
 					}
 				}
-				return result;
 			}
-			else if (second_pri.Count > 0)
+			else if (second_pri.Count > 0 && first_pri.Count == 0)
 			{
 				foreach (int num in second_pri)
 				{
@@ -435,9 +441,8 @@ namespace ConsoleApp1
 						if (intarr[fnum, 0] == num) result.Enqueue(fnum + 1);
 					}
 				}
-				return result;
 			}
-			else 
+			else if (first_pri.Count > 0)
 			{
 				foreach (int num in third_pri)
 				{
@@ -446,21 +451,31 @@ namespace ConsoleApp1
 						if (intarr[fnum, 0] == num) result.Enqueue(fnum + 1);
 					}
 				}
-				return result;
 			}
+			return result;
 		}
 
 		public void priority_Flask_new(List<set_Flask_new> list, Queue<int> pri_f_num) 
 		{
+			int one = pri_f_num.Dequeue();
+			int two = pri_f_num.Dequeue();
+
+			pri_f_num.Clear();	//2개 이상이면 터짐.
+
+			pri_f_num.Enqueue(one);
+			pri_f_num.Enqueue(two);
+
 			foreach (set_Flask_new obj in list) {
 				if (obj.StackNum == 0)
 				{
 					int j = obj.F_Num;
-					list = change_Flask_new(list, pri_f_num.Dequeue(), j-1);
-					list = change_Flask_new(list, pri_f_num.Dequeue(), j-1);
+					list = change_Flask_new(list, one, j-1);
+					list = change_Flask_new(list, two, j-1);
 					break;
 				}
 			}
+
+
 		}
 
 

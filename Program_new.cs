@@ -55,6 +55,7 @@ namespace ConsoleApp1
                 {
                     list_F.Clear();
                     doSort_list_new.defalut_Flask_new(list_F);
+                    doSort_list_new.priority_Flask_new(list_F, pri_f_num);
 
                     //Console.WriteLine($"{str}");
                     int i = q1.Dequeue();
@@ -126,6 +127,7 @@ namespace ConsoleApp1
                     }
                     list_F.Clear();
                     doSort_list_new.defalut_Flask_new(list_F);
+                    doSort_list_new.priority_Flask_new(list_F, pri_f_num);
 
                     do
                     {
