@@ -1,4 +1,6 @@
-﻿using System;
+﻿// 아무리 생각해도 모든 경우의수를 저장하는건 비효율. 폐기처리. 220203 
+
+/*using System;
 using System.Collections.Generic;
 using System.Collections.Concurrent;
 
@@ -22,11 +24,11 @@ namespace ConsoleApp1
                     Console.WriteLine("플라스크 색, 갯수 오류"); return;
                 }
 
-                /*foreach (set_Flask s in list_F)
+                *//*foreach (set_Flask s in list_F)
                 {
                     string str = s.S.Count > 0 ? s.S.Peek() : "없음.";
                     Console.WriteLine($"{s.F_Num} 는 : ${str} 총 크기는 {s.StackNum}");
-                }*/
+                }*//*
                 var q1 = new Queue<int>();
                 //List<Stack<string>> stk_list = new List<Stack<string>>();
                 int[,] colarr = doSort_list_new.Add_totColor(list_F);
@@ -34,12 +36,12 @@ namespace ConsoleApp1
                 Queue<int> pri_f_num = doSort_list_new.PriorityColnum_Search(colarr, list_F.Count - empt_check[0]);
 
 
-                /*  if (empt_check[0] == 2) {
+                *//*  if (empt_check[0] == 2) {
                       doSort_list_new.do_repetition_except_new(list_F, q1, empt_check);
                   }
                   else { 
                       doSort_list_new.do_repetition_new(list_F, q1);
-                  }*/
+                  }*//*
 
                 doSort_list_new.priority_Flask_new(list_F, pri_f_num);
                 doSort_list_new.do_repetition_new(list_F, q1);
@@ -82,7 +84,7 @@ namespace ConsoleApp1
                     //q2.Clear(); //Dequeue이 아니므로 clear
                 }
 
-                /*int aefa = 1;
+                *//*int aefa = 1;
                 foreach (int result in q3) {
                     if (result == 99) continue;
                     if (aefa == 2 || aefa==4) {
@@ -96,7 +98,7 @@ namespace ConsoleApp1
                         Console.WriteLine();
                     }
                     aefa++;
-                }*/
+                }*//*
 
             //q1.Clear(); //Dequeue이 아니므로 clear
             //int count_q3 = q3.Count / 2;
@@ -178,10 +180,10 @@ namespace ConsoleApp1
 
             }
 
-            /*foreach (int result in q3)
+            *//*foreach (int result in q3)
             {
                 Console.WriteLine(result);
-            }*/
+            }*//*
 
             }
             catch (Exception ex)
@@ -192,3 +194,4 @@ namespace ConsoleApp1
         }
     }
 }
+*/
